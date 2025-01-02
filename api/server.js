@@ -1,4 +1,5 @@
 require('dotenv').config();
+module.exports = app;
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
