@@ -1,7 +1,7 @@
-require('dotenv').config();
+// require('dotenv').config();
 export async function fetchMembers() {
     try {
-        const response = await fetch(process.env.FECTH_URL);
+        const response = await fetch('https://ustad-web-server-1.onrender.com/members');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
