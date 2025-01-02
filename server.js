@@ -71,7 +71,6 @@ app.get('/members', async (req, res) => {
     try {
         console.log('Fetching members...');
         const membersList = await Members.find({}); // Fetch all members from MongoDB
-        console.log('Fetched members:', membersList); // Log the result
         res.json(membersList); // Send the data as JSON
     } catch (error) {
         console.error('Error fetching members:', error);
