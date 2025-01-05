@@ -1,5 +1,12 @@
 import { fetchMembers } from "./memberfetcdata.js";
 
+let windowWidth = window.innerWidth;
+function updateCardWidth() {
+    const cardWidth = windowWidth - 80;
+    return cardWidth;
+}
+window.addEventListener("resize", updateCardWidth);
+updateCardWidth();
 
 const members = await fetchMembers(); // Fetch all data
 const container = document.querySelector('#showCardSec');
@@ -13,8 +20,13 @@ let selectMember = members.find(member => member._id === selectMemberId);
 if (!selectMember || selectMember === undefined) {
     container.style.display = 'none';
     teamcontainer.style.display = 'block';
-    cardShowSec.style.overflow = 'auto';
-    cards.style.width = 'clamp(300px, 100%, 1152px)';
+}
+
+if (selectMember) {
+    cards.style.width = `${updateCardWidth()-450}px`;
+}
+if (windowWidth < 992) {
+    cards.style.width = `${updateCardWidth()}px`;
 }
 container.innerHTML = `
     <div class="container">

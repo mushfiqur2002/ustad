@@ -458,7 +458,7 @@ section#team {
 }
 
 .cards {
-    width: clamp(850px, 100%, 1152px);
+    /* width: clamp(850px, 100%, 1152px); */
     overflow-x: scroll;
     padding: 24px 0;
     scrollbar-width: none;
@@ -839,10 +839,10 @@ footer {
     nav.center .container {
         width: 90%;
     }
-
+/* 
     .cards {
         width: clamp(750px, 50%, 900px);
-    }
+    } */
 
 }
 
@@ -882,9 +882,9 @@ footer {
         }
     }
 
-    .cards {
+    /* .cards {
         width: clamp(510px, 50%, 748px);
-    }
+    } */
 
     section#contact .container.center .contact_container {
         display: flex;
@@ -923,9 +923,9 @@ footer {
 
 
 
-    .cards {
+    /* .cards {
         width: clamp(300px, 50%, 500px);
-    }
+    } */
 
 
 

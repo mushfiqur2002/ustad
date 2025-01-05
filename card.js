@@ -1,6 +1,13 @@
 import { fetchMembers } from "./memberfetcdata.js";
 
 let selectMemberId = new URLSearchParams(window.location.search).get('id');
+
+function updateCardWidth() {
+    const cardWidth = window.innerWidth - 80;
+    return cardWidth;
+}
+window.addEventListener("resize", updateCardWidth);
+updateCardWidth();
 async function displayCards() {
     try {
         const members = await fetchMembers();
@@ -18,8 +25,6 @@ async function displayCards() {
         });
 
         groupedByRoleArray.forEach(({ role, members }) => {
-            console.log('Role:', role);
-            console.log('Members:', members);
             let roleElement = role;
             let cardElement = members.filter((value) => value._id != selectMemberId).map(function (member) {
                 const words = member.designation.split(' ');
@@ -56,7 +61,7 @@ async function displayCards() {
             container.innerHTML += `
                 <div class="category_card center">
                     <h1>${roleElement}</h1>
-                    <div class="cards">
+                    <div class="cards" style="width: ${updateCardWidth()}px;">
                         ${cardElement}
                     </div>`
         });
