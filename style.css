@@ -39,9 +39,7 @@
     --btn-padding: 10px 16px;
 
     /* color  */
-    --banner-bg-color: linear-gradient(170deg,
-            #7D17FF,
-            #0085FF);
+    --banner-bg-color: linear-gradient(170deg, rgba(125, 23, 255, 0.8), rgba(0, 133, 255, 0.8));
     --body-bg-color: rgba(0, 133, 255, 0.05);
     --white: #fff;
     --white-1: #F9FBFC;
@@ -798,6 +796,7 @@ footer {
                         }
                     }
                 }
+                
             }
         }
 
@@ -822,14 +821,15 @@ footer {
                     align-items: flex-start;
                     padding-top: 10px;
 
-                    li a {
-                        font-size: var(--footer-link-font-size);
-                        color: var(--gray-1);
-                        &:hover{
-                            color: var(--blue);
+                    li {
+                        a{
+                            font-size: var(--footer-link-font-size);
+                            color: var(--gray-1);
+                            &:hover{
+                                color: var(--blue);
+                            }
                         }
                     }
-
                     li.active a {
                         color: var(--blue);
                     }
@@ -854,9 +854,9 @@ footer {
 }
 
 .scrollAnimation {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation: appear linear both;
+    animation-timeline: view(auto);
+    animation-range: entry 0% cover 30%;
 }
 
 

@@ -11,7 +11,7 @@ updateCardWidth();
 async function displayCards() {
     try {
         const members = await fetchMembers();
-        const container = document.querySelector('.category_card_container scrollAnimation');
+        const container = document.querySelector('.category_card_container');
         const groupedByRole = members.reduce((acc, item) => {
             if (!acc[item.company_role]) {
                 acc[item.company_role] = [];
