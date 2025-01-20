@@ -23,7 +23,7 @@ if (!selectMember || selectMember === undefined) {
 }
 
 if (selectMember) {
-    cards.style.width = `${updateCardWidth()-450}px`;
+    cards.style.width = `${updateCardWidth() - 450}px`;
 }
 if (windowWidth < 992) {
     cards.style.width = `${updateCardWidth()}px`;
@@ -60,14 +60,16 @@ container.innerHTML = `
                 </div>
                 <div>
                     <p class="titlePath">Current</p>
-                    <ul>
-                    ${selectMember.affiliation?.current
-        ? `
-                            <li> ${selectMember.affiliation.current.role || 'Unknown Role'} -
-                                ${selectMember.affiliation.current.department || 'Unknown Department'} ,
-                                ${selectMember.affiliation.current.institution || 'Unknown Institution'}
-                            </li>
-                          ` : '<li>No current affiliation details available</li>'}
+                   <ul>
+                        ${console.log(selectMember.current)}
+                        ${selectMember.current?.map((cur, ind) => `
+                        <li> 
+                            ${cur.role || 'Unknown Role'} -
+                            ${cur.department || 'Unknown Department'} ,
+                            ${cur.institution || 'Unknown Institution'}
+                            </li>`).join('') ||
+                            '<li>No current details available</li>'
+                        }
                     </ul>
                 </div>
                 <div>
@@ -88,7 +90,7 @@ container.innerHTML = `
                     <p class="titlePath">Research Areas</p>
                     <ul class="research_areas">
                         ${selectMember.research_areas?.map((area, ind) =>
-            `<li>${ind + 1}. ${area}</li>`).join('') || '<li>No research areas provided</li>'}
+        `<li>${ind + 1}. ${area}</li>`).join('') || '<li>No research areas provided</li>'}
                     </ul>
                 </div>
             </div>

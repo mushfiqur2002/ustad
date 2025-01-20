@@ -2,6 +2,8 @@
 export async function fetchMembers() {
     try {
         const response = await fetch('https://ustad-web-server-1.onrender.com/members');
+        console.log(response);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
