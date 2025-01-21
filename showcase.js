@@ -61,7 +61,6 @@ container.innerHTML = `
                 <div>
                     <p class="titlePath">Current</p>
                    <ul>
-                        ${console.log(selectMember.current)}
                         ${selectMember.current?.map((cur, ind) => `
                         <li> 
                             ${cur.role || 'Unknown Role'} -
