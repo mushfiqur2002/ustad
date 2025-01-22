@@ -28,13 +28,14 @@ mongoose.connect(mongoURI, {
 const membersSchema = new mongoose.Schema({
     name: String,
     designation: String,
-    affiliation: {
-        current: {
+
+    current: [
+        {
             institution: String,
             department: String,
             role: String,
-        },
-    },
+        }
+    ],
     education: [
         {
             degree: String,
@@ -69,7 +70,6 @@ app.get('/', (req, res) => {
 // API endpoint to fetch members
 app.get('/members', async (req, res) => {
     try {
-        console.log('Fetching members...');
         const membersList = await Members.find({}); // Fetch all members from MongoDB
         res.json(membersList); // Send the data as JSON
     } catch (error) {
@@ -81,5 +81,5 @@ app.get('/members', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+
 });
